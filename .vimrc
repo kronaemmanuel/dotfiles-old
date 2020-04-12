@@ -35,6 +35,9 @@ set undofile
 " Get results While you search
 set incsearch
 
+" Smart casing while searching
+set smartcase
+
 " Color Column settings
 set colorcolumn=80
 highlight ColorColumn ctermbg=0 guibg=lightgrey
@@ -152,4 +155,8 @@ nnoremap <leader>u :UndotreeToggle<CR>
 
 " NerdTree Toggle: Ctrl + n
 map <leader>n :NERDTreeToggle<CR>
+let g:NERDTreeWinSize = 20 
 
+" Buffer controls
+noremap <C-j> :bprevious<CR>
+noremap <C-k> :bnext<CR>

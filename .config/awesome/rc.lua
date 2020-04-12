@@ -335,7 +335,7 @@ globalkeys = gears.table.join(
               {description = "show the menubar", group = "launcher"}),
 
     -- Browser
-    awful.key({ modkey }, "b", function() awful.spawn.with_shell('firefox-developer-edition') end,
+    awful.key({ modkey }, "b", function() awful.spawn.with_shell('firefox-developer-edition --safe-mode') end,
               {description = "open the browser", group = "launcher"})
 )
 
