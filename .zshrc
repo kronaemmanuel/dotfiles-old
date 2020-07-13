@@ -17,3 +17,21 @@ alias dotfiles='/usr/bin/git --git-dir=$HOME/dotfiles/ --work-tree=$HOME'
 
 # Starship
 eval "$(starship init zsh)"
+
+# Tizonia
+#alias music='tizonia --soundcloud-user-likes'
+
+# Pacman
+alias pacman='sudo pacman'
+
+# .vimrc edit
+alias vimrc='vim ~/.vimrc'
+
+# .zshrc edit
+alias zshrc='vim ~/.zshrc'
+
+# vim without any settings plugins
+#alias vi='vim -u NONE'
+
+# show battery percentage
+alias bat='cat /sys/class/power_supply/BAT0/capacity'

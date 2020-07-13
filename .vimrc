@@ -44,6 +44,10 @@ highlight ColorColumn ctermbg=0 guibg=lightgrey
 
 call plug#begin('~/.vim/plugged')
 
+Plug 'rafalbromirski/vim-aurora'
+Plug 'airblade/vim-gitgutter'
+Plug 'tpope/vim-surround'
+Plug 'jiangmiao/auto-pairs'
 Plug 'morhetz/gruvbox'
 Plug 'tpope/vim-fugitive'
 Plug 'leafgarland/typescript-vim'
@@ -57,6 +61,8 @@ Plug 'pangloss/vim-javascript'
 Plug 'maxmellon/vim-jsx-pretty'
 Plug 'vim-airline/vim-airline'
 Plug 'powerline/powerline'
+Plug 'tpope/vim-commentary'
+Plug 'vim-airline/vim-airline-themes'
 
 call plug#end()
 
@@ -109,7 +115,30 @@ endfunction
 autocmd CursorHoldI * :call <SID>show_hover_doc()
 autocmd CursorHold * :call <SID>show_hover_doc()
 
-" Coc settings end
+" GoTo code navigation.
+nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gy <Plug>(coc-type-definition)
+nmap <silent> gi <Plug>(coc-implementation)
+nmap <silent> gr <Plug>(coc-references)
+
+" Next Prev errors
+nmap <silent> [g <Plug>(coc-diagnostic-prev)
+nmap <silent> ]g <Plug>(coc-diagnostic-next)
+
+" Show dignostics
+nnoremap <Leader>d :<C-u>CocList diagnostics<cr>
+
+" Rename a word
+nmap <leader>rr <Plug>(coc-rename)
+nnoremap <leader>prw :CocSearch <C-R>=expand("<cword>")<CR><CR>
+
+" Perform code action
+nmap <leader>do <Plug>(coc-codeaction)
+
+" Rename symbol
+nmap <leader>r <Plug>(coc-rename)
+
+"Coc settings end
 
 " set Vim-specific sequences for RGB colors
 let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
@@ -121,13 +150,13 @@ if (has("termguicolors"))
 endif
 
 " Colorscheme
-colorscheme shades_of_purple 
+colorscheme aurora 
 set background=dark
 
 " Airline theme
 let g:airline#extensions#tabline#enabled = 1
 set showcmd
-let g:shades_of_purple_airline = 1
+let g:airline_theme='zenburn'
 
 " Set current cursor line
 set cursorline
@@ -160,3 +189,6 @@ let g:NERDTreeWinSize = 20
 " Buffer controls
 noremap <C-j> :bprevious<CR>
 noremap <C-k> :bnext<CR>
+
+" Allow hidden buffers
+set hidden
